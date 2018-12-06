@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Map;
+use App\User;
 use Illuminate\Http\Request;
 use FarhanWazir\GoogleMaps\GMaps;
 use Illuminate\Support\Facades\DB;
@@ -23,10 +25,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id = null)
     {
-        $config['center'] = '-3.77262142697798, -38.51417962284637';
-        $config['zoom'] = '16';
+        $users = User::with('localizations')->get();
+
+        /*
+       * Set parameters
+       */
+        $config['center'] = '-3.7342702728959916, -38.511656276520114';
+        $config['zoom'] = '12';
         $config['map_height'] = '500px';
         $config['geocodeCaching'] = true;
         $config['scrollwheel'] = false;
@@ -38,16 +45,18 @@ class HomeController extends Controller
         $GMap->initialize($config);
 
         /*
-         * Add Marker
+         * Show all Markers
          */
-        $coordinates = DB::table('gmaps_geocache')->get();
+        if(is_null($id)){
+            $coordinates = Map::with('user')->get();
+        } else {
+            $coordinates = DB::table('gmaps_geocache')->where('user_id','=', $id)->get();
+        }
 
         foreach ($coordinates as $coordinate) {
-
             $marker['position'] = $coordinate->latitude.','.$coordinate->longitude;
             $marker['infowindow_content'] = $coordinate->address;
             $GMap->add_marker($marker);
-
         }
 
         /*
@@ -55,6 +64,6 @@ class HomeController extends Controller
          */
         $map = $GMap->create_map();
 
-        return view('home')->with('map',$map);
+        return view('home')->with('users', $users)->with('map', $map);
     }
 }

@@ -22,3 +22,17 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+function myrandomFloat($min = 0, $max = 1) {
+    return $min + mt_rand() / mt_getrandmax() * ($max - $min);
+}
+
+$factory->define(App\Map::class, function (Faker $faker) {
+
+    return [
+        'address' => $faker->streetName,
+        'latitude' => myrandomFloat($min = -3.704635408143426, $max = -3.816317631532091),
+        'longitude' => myrandomFloat($min = -38.4733757894595, $max = -38.622721187408786),
+        'user_id' => $faker->numberBetween(1,10)
+    ];
+});
