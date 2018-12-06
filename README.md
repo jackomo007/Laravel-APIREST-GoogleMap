@@ -14,6 +14,7 @@
 - Rename or copy .env.example file to .env
 - Run php artisan key:generate
 - Set your database credentials in your .env file
+- Add the ApiKey of GoggleMaps in the file googlemaps.php
 - Run in tinker the commands:
 1. factory(App\User::class,10)->create()
 2. factory(App\Map::class,10)->create()
@@ -35,6 +36,7 @@
 - Renombra o copia el archivo .env.example a .env
 - Ejecuta php artisan key:generate
 - Establezca sus credenciales de base de datos en su archivo .env
+- Agregar la ApiKey de GoggleMaps en el archivo googlemaps.php
 - Ejecutar en tinker los comandos:
 1. factory(App\User::class,10)->create()
 2. factory(App\Map::class,10)->create()
@@ -55,6 +57,7 @@
 - Renomeie ou copie o arquivo .env.example para arquivo .env
 - Execute o comando php artisan key: generate
 - Defina suas credenciais de banco de dados em seu arquivo .env
+- Adicione o ApiKey do GoggleMaps no arquivo googlemaps.php
 - Execute os comandos no tinker:
 1. factory(App\User::class,10)->create()
 2. factory(App\Map::class,10)->create()
