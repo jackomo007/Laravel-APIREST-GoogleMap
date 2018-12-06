@@ -20,7 +20,7 @@
 2. factory(App\Map::class,10)->create()
 - Run the server
 - Create a user
--Test in Postman (or you preference) the routes in order:
+- Test in Postman (or you preference) the routes in order:
 
 1.http://127.0.0.1:8000/api/login/ <br>
 2.http://127.0.0.1:8000/api/home <br>
