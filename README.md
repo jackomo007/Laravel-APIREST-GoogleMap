@@ -5,7 +5,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Instruccions:
+<p align="center"><img src="https://1.bp.blogspot.com/-lBaeJEyLVYY/WwR7stGIPoI/AAAAAAAABic/f0mMXRJ4gfwuw_c-yXsc-fJBeVdbQfXLgCLcBGAs/s1600/Google%2BMaps%2Balt.png" width="250" height="100"></p>
+
+## Instructions:
 
 - Clone the repo and cd into it
 - composer install
